@@ -1,4 +1,4 @@
-package com.thinkinjava.myjava.chap21;
+package com.thinkinjava.myjava.chap21.bookexc;
 
 /**
  * Created by zhangzhibo on 17-7-30.

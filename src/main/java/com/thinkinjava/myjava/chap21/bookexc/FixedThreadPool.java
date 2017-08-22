@@ -1,4 +1,4 @@
-package com.thinkinjava.myjava.chap21;
+package com.thinkinjava.myjava.chap21.bookexc;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
