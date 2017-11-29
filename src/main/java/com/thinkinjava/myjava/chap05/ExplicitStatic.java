@@ -15,6 +15,7 @@ class Cup {
     }
 }
 
+
 class Cups {
     static Cup cup1;
     static Cup cup2;
@@ -34,7 +35,7 @@ public class ExplicitStatic {
     static Cups cups2 = new Cups();
 
     public static void main(String[] args) {
-        int[] a = {1,2,};
+        int[] a = {1, 2,};
         int k = a.length;
         System.out.println(Arrays.toString(a));
         System.out.println("Inside main()");
