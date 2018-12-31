@@ -1,5 +1,8 @@
 package com.thinkinjava.myjava.chap15;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Holder3<T> {
     private T a;
 
