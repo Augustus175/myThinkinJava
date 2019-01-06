@@ -9,8 +9,8 @@ class Biology {
 class Animal extends Biology {
 }
 
-class Dog extends Animal {
-}
+//class Dog extends Animal {
+//}
 
 public class ExtendAndSuperTest {
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class ExtendAndSuperTest {
 
         List<? super Animal> list2 = new ArrayList<>();
         list2.add(new Animal());
-        list2.add(new Dog());
+//        list2.add(new Dog());
 //        list2.add(new Biology());
 
     }
