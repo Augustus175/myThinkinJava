@@ -9,7 +9,7 @@ class ExceptionThread2 implements Runnable {
     public void run() {
         Thread t = Thread.currentThread();
         System.out.println("run() by " + t);
-        System.out.println("en = " + t.getUncaughtExceptionHandler());
+//        System.out.println("en = " + t.getUncaughtExceptionHandler());
         throw new RuntimeException();
     }
 }
@@ -25,11 +25,11 @@ class HandlerThreadFactory implements ThreadFactory {
     public Thread newThread(Runnable r) {
         System.out.println(this + " creating new Thread");
         Thread t = new Thread(r);
-        try {
-            Thread.sleep(50000);
-        } catch (InterruptedException e) {
-
-        }
+//        try {
+//            Thread.sleep(50000);
+//        } catch (InterruptedException e) {
+//
+//        }
         System.out.println("created " + t);
         t.setUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
         System.out.println(
@@ -41,8 +41,11 @@ class HandlerThreadFactory implements ThreadFactory {
 
 public class CaptureUncaughtException {
     public static void main(String[] args) {
-        ExecutorService exec = Executors.newCachedThreadPool(
-                new HandlerThreadFactory());
+//        ExecutorService exec = Executors.newCachedThreadPool(
+//                new HandlerThreadFactory());
+//        exec.execute(new ExceptionThread2());
+        Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtExceptionHandler());
+        ExecutorService exec = Executors.newCachedThreadPool();
         exec.execute(new ExceptionThread2());
     }
 }
