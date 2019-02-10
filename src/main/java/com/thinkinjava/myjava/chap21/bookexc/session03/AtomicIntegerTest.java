@@ -30,7 +30,7 @@ public class AtomicIntegerTest implements Runnable {
                 System.err.println("Aborting");
                 System.exit(0);
             }
-        }, 7000);
+        }, 4000);
         ExecutorService exec = Executors.newCachedThreadPool();
         AtomicIntegerTest ait = new AtomicIntegerTest();
         exec.execute(ait);
