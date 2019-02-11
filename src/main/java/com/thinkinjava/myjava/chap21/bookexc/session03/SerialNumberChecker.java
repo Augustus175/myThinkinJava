@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 class SerialNumberGenerator {
     private static volatile int serialNumber = 0;
 
-    //    public static synchronized int nextSerialNumber(){
-    public static int nextSerialNumber() {
+    public static synchronized int nextSerialNumber() {
+//    public static int nextSerialNumber() {
         return serialNumber++;
     }
 }
