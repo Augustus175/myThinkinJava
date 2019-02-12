@@ -82,7 +82,7 @@ class PairManager1 extends PairManager {
 }
 
 class PairManager2 extends PairManager {
-    public synchronized void increment() {
+    public void increment() {
         Pair temp;
         synchronized (this) {
             p.incrementX();
@@ -148,8 +148,8 @@ public class CriticalSection {
 
     public static void main(String[] args) {
         PairManager
-                pman1 = new PairManager1(),
-                pman2 = new PairManager1();
+                pman1 = new PairManager2(),
+                pman2 = new PairManager2();
         testApproaches(pman1, pman2);
 
     }
