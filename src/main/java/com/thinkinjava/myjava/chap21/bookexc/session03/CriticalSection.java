@@ -7,6 +7,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by zhangzhibo-dell on 17-8-20.
@@ -78,6 +80,21 @@ class PairManager1 extends PairManager {
         p.incrementX();
         p.incrementY();
         store(getPair());
+    }
+}
+
+class ExplicitPariManager1 extends PairManager {
+    private Lock lock = new ReentrantLock();
+
+    public void increment() {
+        lock.lock();
+        try {
+            p.incrementX();
+            p.incrementY();
+            store(getPair());
+        } finally {
+            lock.unlock();
+        }
     }
 }
 
