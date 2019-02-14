@@ -1,6 +1,5 @@
 package com.thinkinjava.myjava.chap21.bookexc.session03.justTestEverything;
 
-import com.thinkinjava.myjava.chap21.bookexc.session03.AtomictyTest;
 
 /**
  * Created by zhangzhibo-dell on 17-8-21.
