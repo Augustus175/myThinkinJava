@@ -49,6 +49,7 @@ class Pair {
 
     public void checkState() {
         if (x != y) {
+            System.out.println(x + "       " + y);
             throw new PairValuesNotEqualException();
         }
     }
@@ -83,20 +84,6 @@ class PairManager1 extends PairManager {
     }
 }
 
-class ExplicitPariManager1 extends PairManager {
-    private Lock lock = new ReentrantLock();
-
-    public void increment() {
-        lock.lock();
-        try {
-            p.incrementX();
-            p.incrementY();
-            store(getPair());
-        } finally {
-            lock.unlock();
-        }
-    }
-}
 
 class PairManager2 extends PairManager {
     public void increment() {
