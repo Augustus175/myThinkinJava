@@ -1,20 +1,16 @@
 package com.thinkinjava.myjava.chap21.bookexc.session03;
 
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 class ExplicitPariManager1 extends PairManager {
 
     public synchronized void increment() {
-            p.incrementX();
-            p.incrementY();
-            store(getPair());
+        p.incrementX();
+        p.incrementY();
+        store(getPair());
     }
 }
 
 class ExplicitPariManager2 extends PairManager {
-    private Lock lock = new ReentrantLock();
 
     public void increment() {
         Pair temp;

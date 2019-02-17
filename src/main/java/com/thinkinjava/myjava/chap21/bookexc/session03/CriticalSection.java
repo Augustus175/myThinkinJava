@@ -58,10 +58,24 @@ class Pair {
 abstract class PairManager {
     AtomicInteger checkCounter = new AtomicInteger(0);
     protected Pair p = new Pair();
+    protected Lock lock = new ReentrantLock();
     private List<Pair> storage = Collections.synchronizedList(new ArrayList<Pair>());
 
     public synchronized Pair getPair() {
         return new Pair(p.getX(), p.getY());
+    }
+
+    public Pair getPair(boolean localLock) {
+        Pair tmp = null;
+        lock.lock();
+        try {
+            int x = p.getX();
+            int y = p.getY();
+            tmp = new Pair(x, y);
+        } finally {
+            lock.unlock();
+        }
+        return tmp;
     }
 
     protected void store(Pair p) {
