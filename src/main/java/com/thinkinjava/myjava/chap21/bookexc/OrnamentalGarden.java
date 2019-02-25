@@ -11,6 +11,7 @@ class Count {
     private int count = 0;
     private Random random = new Random(47);
 
+    //    public int increment() {
     public synchronized int increment() {
         int temp = count;
         if (random.nextBoolean()) {

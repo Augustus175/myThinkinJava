@@ -67,7 +67,7 @@ public class Interrupting {
 
     static void test(Runnable r) throws InterruptedException {
         Future<?> f = exec.submit(r);
-        TimeUnit.MILLISECONDS.sleep(100);
+        TimeUnit.MILLISECONDS.sleep(10000);
         System.out.println("Interrupting " + r.getClass().getName());
         f.cancel(true); // Interrupts if running
         System.out.println("Interrupt sent to " + r.getClass().getName());
