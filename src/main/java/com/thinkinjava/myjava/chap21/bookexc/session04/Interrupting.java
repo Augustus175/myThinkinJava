@@ -77,7 +77,7 @@ public class Interrupting {
         test(new SleepBlocked());
         test(new IOBlocked(System.in));
         test(new SynchronizedBlocked());
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(5);
         System.out.println("Aborting with System.exit(0)");
         System.exit(0); // ... since last 2 interrupts failed
     }
