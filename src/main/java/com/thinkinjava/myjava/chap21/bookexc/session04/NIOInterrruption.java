@@ -24,11 +24,15 @@ class NIOBlocked implements Runnable {
             System.out.println("Waiting for read() in " + this);
             sc.read(ByteBuffer.allocate(1));
         } catch (ClosedByInterruptException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("CloseByInterruptException !");
         } catch (AsynchronousCloseException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("AsynchronousCloseException !");
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.out.println("IOException !");
+            throw new RuntimeException(e);
         }
         System.out.println("Exiting NIOBlocked.run() " + this);
     }
@@ -38,13 +42,13 @@ public class NIOInterrruption {
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         ServerSocket server = new ServerSocket(8080);
-        InetSocketAddress isa = new InetSocketAddress("localhost ", 8080);
+        InetSocketAddress isa = new InetSocketAddress("localhost", 1080);
         SocketChannel sc1 = SocketChannel.open(isa);
         SocketChannel sc2 = SocketChannel.open(isa);
         Future<?> f = executorService.submit(new NIOBlocked(sc1));
         executorService.execute(new NIOBlocked(sc2));
         executorService.shutdown();
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(10);
         f.cancel(true);
         TimeUnit.SECONDS.sleep(1);
         sc2.close();

@@ -8,6 +8,10 @@ public class MultiLock {
     public synchronized void f1(int count) {
         if (count-- > 0) {
             System.out.println("f1() calling f2() with count " + count);
+//            try {
+//                Thread.sleep(100000);
+//            } catch (InterruptedException e) {
+//            }
             f2(count);
         }
     }
